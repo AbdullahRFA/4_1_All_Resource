@@ -1,0 +1,10 @@
+I = imread('nature.jpeg');  
+I_gray = rgb2gray(I);  
+Gx = [-1 0 1; -sqrt(2) 0 sqrt(2); -1 0 1];  
+Gy = [-1 -sqrt(2) -1; 0 0 0; 1 sqrt(2) 1];  
+Ix = imfilter(double(I_gray), Gx);
+Iy = imfilter(double(I_gray), Gy);
+IsotropicEdge = sqrt(Ix.^2 + Iy.^2);
+figure;
+subplot(1, 2, 1), imshow(I), title('Original Image');
+subplot(1, 2, 2), imshow(uint8(IsotropicEdge)), title('Edge Detection using Isotropic Operator');

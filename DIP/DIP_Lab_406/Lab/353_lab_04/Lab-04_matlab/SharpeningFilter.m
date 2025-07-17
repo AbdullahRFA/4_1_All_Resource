@@ -1,0 +1,11 @@
+image = imread('nature.jpeg');
+grayImage = rgb2gray(image);
+sharpeningKernel = fspecial('unsharp');
+sharpenedImage = imfilter(grayImage, sharpeningKernel);
+figure;
+subplot(1, 2, 1);
+imshow(grayImage);
+title('Original Image');
+subplot(1, 2, 2);
+imshow(sharpenedImage);
+title('Sharpened Image (Using fspecial)');

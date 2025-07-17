@@ -1,0 +1,10 @@
+I = imread('nature.jpeg');  
+I_gray = rgb2gray(I);  
+Gx = [-1 0 1; -2 0 2; -1 0 1];  
+Gy = [-1 -2 -1; 0 0 0; 1 2 1];  
+Ix = imfilter(double(I_gray), Gx);
+Iy = imfilter(double(I_gray), Gy);
+SobelEdge = sqrt(Ix.^2 + Iy.^2);
+figure;
+subplot(1, 2, 1), imshow(I), title('Original Image');
+subplot(1, 2, 2), imshow(uint8(SobelEdge)), title('Edge Detection using Sobel Operator');
