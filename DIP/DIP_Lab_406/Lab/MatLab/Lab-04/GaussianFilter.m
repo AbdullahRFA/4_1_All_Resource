@@ -1,0 +1,11 @@
+image = imread('nature.jpeg');
+grayImage = rgb2gray(image);
+sigma = 2;   
+filteredImage = imgaussfilt(grayImage, sigma);
+figure;
+subplot(1, 2, 1);
+imshow(grayImage);
+title('Original Image');
+subplot(1, 2, 2);
+imshow(filteredImage);
+title('Gaussian Filtered Image');

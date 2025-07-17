@@ -1,0 +1,10 @@
+I = imread('nature.jpeg'); 
+I_gray = rgb2gray(I); 
+Gx = [1 0; 0 -1]; 
+Gy = [0 1; -1 0];  
+Ix = imfilter(double(I_gray), Gx);
+Iy = imfilter(double(I_gray), Gy);
+RobertsEdge = sqrt(Ix.^2 + Iy.^2);
+figure;
+subplot(1, 2, 1), imshow(I), title('Original Image');
+subplot(1, 2, 2), imshow(uint8(RobertsEdge)), title('Edge Detection using Roberts Operator');

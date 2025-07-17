@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+input_image = cv2.imread('nature.jpeg', cv2.IMREAD_GRAYSCALE)
+kernel = np.ones((5, 5), np.uint8)  
+opened_image = cv2.morphologyEx(input_image, cv2.MORPH_OPEN, kernel)
+closed_image = cv2.morphologyEx(input_image, cv2.MORPH_CLOSE, kernel)
+plt.figure(figsize=(15, 5))
+plt.subplot(1, 3, 1)
+plt.imshow(input_image, cmap='gray')
+plt.title('Original Image')
+plt.axis('off')
+plt.subplot(1, 3, 2)
+plt.imshow(opened_image, cmap='gray')
+plt.title('Opened Image')
+plt.axis('off')
+plt.subplot(1, 3, 3)
+plt.imshow(closed_image, cmap='gray')
+plt.title('Closed Image')
+plt.axis('off')
+plt.show()
