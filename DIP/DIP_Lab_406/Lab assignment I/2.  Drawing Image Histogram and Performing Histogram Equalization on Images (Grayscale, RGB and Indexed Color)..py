@@ -13,7 +13,7 @@ if rgb_img.dtype == np.uint8:
 
 # ---------- Simulate Indexed Color Image using KMeans ----------
 pixels = rgb_img.reshape(-1, 3)
-kmeans = KMeans(n_clusters=8, random_state=0).fit(pixels)
+kmeans = KMeans(n_clusters=8, random_state=42).fit(pixels)
 indexed_pixels = kmeans.labels_.reshape(rgb_img.shape[:2])
 indexed_img = color.label2rgb(indexed_pixels, image=rgb_img, bg_label=0)
 
