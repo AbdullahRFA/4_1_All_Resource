@@ -24,10 +24,12 @@ Y, X = np.indices((height, width), dtype=np.float32)
 dx = X - center_x
 dy = Y - center_y
 r = np.sqrt(dx**2 + dy**2)
+
 offset = amplitude * np.sin(frequency * r + phase)
 
 # Avoid division by zero
 r_safe = r + 1e-6
+
 X_new = X + (dx / r_safe) * offset
 Y_new = Y + (dy / r_safe) * offset
 
